@@ -265,14 +265,20 @@ export default {
   //Metodos
   methods: {
     async searchbolsas(bolsadata) {
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFbGl1ZGUgUXVpbnRhcyIsIlVzZXIiOiJFbGl1ZGUgUXVpbnRhcyIsIlRlbGVmb25lIjoic3RyaW5nIiwiSWQiOiIyNSIsIlNlbmhhIjoiJDJhJDExJFJ2Vi4vQzJCcTVoVEJLWDY0UkhkenV0MmMyNXN1dGRBb1dsQ2JiUENOWTFIVHBydkFSMXJHIiwianRpIjoiMjJmODJkODQtOTIyYy00YTBlLWI2ZmUtMjRkYWRmYTU4ZmZkIiwiZXhwIjoxNzM2MTgxOTE0LCJpc3MiOiJEVkoiLCJhdWQiOiJEVkoifQ.GYHV5ThP_mSfrkmuO_QLtUyy8YDbLpfYRNJCdBYh7cs";
       try {
+        const customHeaderParams = {
+          Authorization: `Bearer ${token}`,
+        };
+
         this.val = 2;
         const response = await axios.get(
-          "http://localhost:5283/api/dvj/Pesquisar",
+          "https://api.socia.ao:44307/api/dvj/Pesquisar",
           {
             params: {
               bolsa: bolsadata,
             },
+            headers: customHeaderParams,
           }
         );
 
